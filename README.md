@@ -80,6 +80,16 @@ graph TD
 
 ---
 
+## Features
+
++ Dark Theme (using qdarktheme)
++ 7 Screens (Home, Capture, Crop, Model Select, Chat, Save, Done)
++ Image and Video Capture
++ LLM Chat with Streaming
++ Save/Load Chat Sessions 
++ Model Selection (LLM URL + Model Dropdown)
++ Delete or Rename Saved Chats
+
 ## What Was Verified
 
 - ✅ All dependencies install cleanly

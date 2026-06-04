@@ -2,7 +2,7 @@
 
 ## What Was Built
 
-A Python desktop app that captures images or short video clips from a webcam, optionally crops them, and sends them **in-memory** (no file saved) to a local LLM via LM Studio for conversational analysis.
+A Python desktop app that captures images or short video clips from a webcam, optionally crops them, and sends them **in-memory** (no external file needed to be saved previously) to a local LLM via LM Studio for conversational analysis.
 
 ---
 
@@ -82,13 +82,13 @@ graph TD
 
 ## Features
 
-+ Dark Theme (using qdarktheme)
-+ 7 Screens (Home, Capture, Crop, Model Select, Chat, Save, Done)
-+ Image and Video Capture
-+ LLM Chat with Streaming
-+ Save/Load Chat Sessions 
-+ Model Selection (LLM URL + Model Dropdown)
-+ Delete or Rename Saved Chats
+- Dark Theme (using qdarktheme)
+- 7 Screens (Home, Capture, Crop, Model Select, Chat, Save, Done)
+- Image and Video Capture
+- LLM Chat with Streaming
+- Save/Load Chat Sessions 
+- Model Selection (LLM URL + Model Dropdown)
+- Delete or Rename Saved Chats
 
 ## What Was Verified
 

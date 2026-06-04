@@ -90,6 +90,9 @@ graph TD
 - Model Selection (LLM URL + Model Dropdown)
 - Delete or Rename Saved Chats
 
+> [!NOTE]
+> The video input feature works by sending multiple frames from the video to the LLM in order to process as multiple images. The multiple frames (images) are sent as a panel (chained images) so the LLM can interpret it as one image (full context). This is done primarily due to employing a local LLM.
+
 ## What Was Verified
 
 - ✅ All dependencies install cleanly

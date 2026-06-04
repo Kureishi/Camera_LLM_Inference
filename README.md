@@ -1,4 +1,4 @@
-# Camera → LLM Inference App
+# Camera → Local LLM Inference App
 
 ## Description
 

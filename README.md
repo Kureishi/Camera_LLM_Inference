@@ -1,6 +1,6 @@
-# Camera → LLM Inference App — Walkthrough
+# Camera → LLM Inference App
 
-## What Was Built
+## Description
 
 A Python desktop app that captures images or short video clips from a webcam, optionally crops them, and sends them **in-memory** (no external file needed to be saved previously) to a local LLM via LM Studio for conversational analysis.
 

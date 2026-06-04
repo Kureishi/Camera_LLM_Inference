@@ -76,7 +76,6 @@ graph TD
 | **In-memory encoding** | `cv2.imencode` → base64 | No file ever touches disk; data goes straight to the LLM API |
 | **Video → LLM** | Sample up to 8 frames | Local VLMs don't accept video — sending evenly-spaced frames approximates it |
 | **LLM API** | `openai` client → `localhost:1234` | LM Studio is OpenAI-compatible; swapping to a cloud provider later is trivial |
-| **Theme** | Custom deep-space dark stylesheet | Cyan accents for image mode, amber for video mode |
 | **Chat persistence** | JSON files in `chats/` | Simple, portable, human-readable |
 
 ---
@@ -88,7 +87,7 @@ graph TD
 - ✅ App launches and renders Screen 1 correctly
 - ✅ Fixed `pyqtdarktheme` API for v0.1.7 (`load_stylesheet` instead of `setup_theme`)
 
-### Physical Testing Passed
+## Physical Testing Passed
 - 📷 Camera feed with a physical webcam
 - 🎬 Video recording and frame sampling
 - 🤖 End-to-end LLM chat (requires LM Studio with a vision model running)

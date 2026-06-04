@@ -93,3 +93,8 @@ graph TD
 - 🎬 Video recording and frame sampling
 - 🤖 End-to-end LLM chat (requires LM Studio with a vision model running)
 - 💾 Save/load chat sessions
+
+## ⏳ In Progress
+- [ ] Add date to Saved Chats
+- [ ] Add title at top of chat (the chat name)
+- [ ] Reform layout to be more robust

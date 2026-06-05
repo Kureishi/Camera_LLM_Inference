@@ -105,6 +105,7 @@ graph TD
 - 🎬 Video recording and frame sampling
 - 🤖 End-to-end LLM chat (requires LM Studio with a vision model running)
 - 💾 Save/load chat sessions
+- 📱 Verify smartphone can be used as webcam
 
 ## ⏳ In Progress
 - [ ] Add date to Saved Chats

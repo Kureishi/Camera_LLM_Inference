@@ -62,7 +62,8 @@ graph TD;
     S5 -->|Finish| S6["Screen 6: Save?"];
     S6 -->|Save / Skip| S7["Screen 7: Done"];
     S7 -->|3s auto| S1;
-    S1 -->|Open saved chat| S5R["Screen 5: Chat (read-only)"];
+    S1 -->|Open saved chat| S5P["Screen 5: Chat (past chat)"];
+    S5P -->|Continue Chatting| S5;
 ```
 
 ---

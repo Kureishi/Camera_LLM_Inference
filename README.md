@@ -104,12 +104,9 @@ graph TD
 - 🎬 Video recording and frame sampling
 - 🤖 End-to-end LLM chat (requires LM Studio with a vision model running)
 - 💾 Save/load chat sessions
-- 📱 Verify smartphone can be used as webcam
 
 ## ⏳ In Progress
-- [ ] Add date to Saved Chats
-- [ ] Add title at top of chat (the chat name)
-- [ ] Reform layout to be more robust
+- 📱 Verify smartphone can be used as webcam
 
 > [!IMPORTANT]
 > Some dummy chats are present already under the Saved Chats section (`chats/` folder). This was collected during testing and left to provide various samples. As such, they can be safely deleted.

@@ -163,7 +163,7 @@ class Screen1_Home(QWidget):
 
     def _toggle_panel(self):
         self._panel_open = not self._panel_open
-        target_w = 260 if self._panel_open else 0
+        target_w = 300 if self._panel_open else 0
 
         if self._panel_anim:
             self._panel_anim.stop()
@@ -233,9 +233,9 @@ class Screen1_Home(QWidget):
         sessions = chat_store.load_all()
         for session in sessions:
             item = QListWidgetItem()
-            item.setText(f"  {session.name}\n  {session.display_timestamp}")
+            item.setText(f"  {session.name}\n  Saved: {session.display_saved_at}")
             item.setData(Qt.ItemDataRole.UserRole, session)
-            item.setSizeHint(QSize(240, 54))
+            item.setSizeHint(QSize(280, 66))
             self._chat_list.addItem(item)
 
     def on_enter(self, **kwargs):

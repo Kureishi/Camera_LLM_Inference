@@ -20,6 +20,7 @@ class ChatSession:
     model:      str
     messages:   list[dict] = field(default_factory=list)
     timestamp:  str        = field(default_factory=lambda: datetime.now().isoformat())
+    saved_at:   str        = ""   # populated at load time from file mtime
 
     # ── Serialisation ────────────────────────────────────────────────────────
 
@@ -60,6 +61,17 @@ class ChatSession:
             return dt.strftime("%b %d, %Y  %H:%M")
         except ValueError:
             return self.timestamp
+
+    @property
+    def display_saved_at(self) -> str:
+        """Display the file modification time, falling back to creation timestamp."""
+        if self.saved_at:
+            try:
+                dt = datetime.fromisoformat(self.saved_at)
+                return dt.strftime("%b %d, %Y  %H:%M")
+            except ValueError:
+                pass
+        return self.display_timestamp
 
     def get_thumbnail_data_url(self) -> str:
         """Return the first (or only) frame data-URL for thumbnail display."""

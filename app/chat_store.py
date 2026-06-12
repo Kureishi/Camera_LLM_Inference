@@ -37,7 +37,10 @@ def load_all() -> list[ChatSession]:
     sessions: list[ChatSession] = []
     for fpath in sorted(CHATS_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True):
         try:
-            sessions.append(ChatSession.from_json(fpath.read_text(encoding="utf-8")))
+            session = ChatSession.from_json(fpath.read_text(encoding="utf-8"))
+            from datetime import datetime
+            session.saved_at = datetime.fromtimestamp(fpath.stat().st_mtime).isoformat()
+            sessions.append(session)
         except Exception:
             pass  # skip malformed files
     return sessions

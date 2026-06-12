@@ -288,7 +288,7 @@ class Screen5_Chat(QWidget):
             self._session  = session
             self._messages = list(session.messages)
             self._client.set_base_url(self.mw.lm_base_url)
-            self._model_lbl.setText(f"Model: {session.model}  |  Read-only replay")
+            self._model_lbl.setText(f"📝 {session.name}  |  Model: {session.model}")
             self._mode_lbl.setText(
                 f"<span style='color:{ACCENT_AMBER};'>{'🎬 VIDEO' if session.media_type == 'video' else '📷 IMAGE'}</span>"
             )

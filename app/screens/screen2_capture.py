@@ -6,6 +6,7 @@ Video mode : "Record/Stop" toggles in-memory recording, goes to Screen 3.
 """
 from __future__ import annotations
 
+import cv2
 import numpy as np
 from PySide6.QtCore    import Qt, QTimer, Signal, Slot
 from PySide6.QtGui     import QImage, QPixmap, QFont
@@ -32,6 +33,7 @@ class Screen2_Capture(QWidget):
         self._recording    = False
         self._recorded_frames: list[np.ndarray] = []
         self._latest_frame: np.ndarray | None   = None
+        self._rotation_angle = 0
         self._elapsed_sec  = 0
         self._timer        = QTimer(self)
         self._timer.setInterval(1000)
@@ -73,8 +75,16 @@ class Screen2_Capture(QWidget):
         self._cam_input.setFixedWidth(200)
         self._cam_input.setToolTip("Camera index (0, 1) or IP Camera URL (http://...)")
         self._cam_input.returnPressed.connect(self._switch_camera)
+        
+        self._rotate_btn = QPushButton("Rotate")
+        self._rotate_btn.setFixedSize(100, 36)
+        self._rotate_btn.setStyleSheet(f"background: {BG_PANEL}; color: {TEXT_PRIMARY}; border: 1px solid {BORDER}; border-radius: 4px; font-size: 14px;")
+        self._rotate_btn.setToolTip("Rotate camera feed")
+        self._rotate_btn.clicked.connect(self._rotate_camera)
+        
         top_l.addWidget(cam_lbl)
         top_l.addWidget(self._cam_input)
+        top_l.addWidget(self._rotate_btn)
         outer.addWidget(top)
 
         # ── Camera feed ──────────────────────────────────────────────────────
@@ -190,8 +200,18 @@ class Screen2_Capture(QWidget):
 
     # ── Frame handling ───────────────────────────────────────────────────────
 
+    def _rotate_camera(self):
+        self._rotation_angle = (self._rotation_angle + 90) % 360
+
     @Slot(np.ndarray)
     def _on_frame(self, frame: np.ndarray):
+        if self._rotation_angle == 90:
+            frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        elif self._rotation_angle == 180:
+            frame = cv2.rotate(frame, cv2.ROTATE_180)
+        elif self._rotation_angle == 270:
+            frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            
         self._latest_frame = frame
         if self._recording:
             self._recorded_frames.append(frame.copy())

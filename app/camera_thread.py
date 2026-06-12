@@ -43,7 +43,14 @@ class CameraThread(QThread):
                 self._cap = cv2.VideoCapture(self.camera_source)
         else:
             # IP camera URL
-            self._cap = cv2.VideoCapture(self.camera_source)
+            url = str(self.camera_source).strip()
+            # If the user enters a bare IP Webcam URL like "http://10.0.0.249:8080", 
+            # OpenCV needs the actual video stream endpoint, which is usually "/video".
+            if url.startswith("http") and url.count("/") == 2:
+                url += "/video"
+            elif url.startswith("http") and url.count("/") == 3 and url.endswith("/"):
+                url += "video"
+            self._cap = cv2.VideoCapture(url)
 
         if not self._cap.isOpened():
             self.error.emit(f"Cannot open camera source: {self.camera_source}")

@@ -52,16 +52,17 @@ python main.py
 ## User Flow
 
 ```mermaid
-    S1["Screen 1: Home"] -->|Image| S2I["Screen 2: Camera (Image)"]
-    S1 -->|Video| S2V["Screen 2: Camera (Video)"]
-    S2I -->|Capture| S3["Screen 3: Crop"]
-    S2V -->|Stop recording| S3
-    S3 -->|Use Full / Apply Crop| S4["Screen 4: Model Select"]
-    S4 -->|Analyse| S5["Screen 5: Chat"]
-    S5 -->|Finish| S6["Screen 6: Save?"]
-    S6 -->|Save / Skip| S7["Screen 7: Done"]
-    S7 -->|3s auto| S1
-    S1 -->|Open saved chat| S5R["Screen 5: Chat (read-only)"]
+graph TD;
+    S1["Screen 1: Home"] -->|Image| S2I["Screen 2: Camera (Image)"];
+    S1 -->|Video| S2V["Screen 2: Camera (Video)"];
+    S2I -->|Capture| S3["Screen 3: Crop"];
+    S2V -->|Stop recording| S3;
+    S3 -->|Use Full / Apply Crop| S4["Screen 4: Model Select"];
+    S4 -->|Analyse| S5["Screen 5: Chat"];
+    S5 -->|Finish| S6["Screen 6: Save?"];
+    S6 -->|Save / Skip| S7["Screen 7: Done"];
+    S7 -->|3s auto| S1;
+    S1 -->|Open saved chat| S5R["Screen 5: Chat (read-only)"];
 ```
 
 ---

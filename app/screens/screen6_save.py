@@ -96,6 +96,8 @@ class Screen6_Save(QWidget):
         self._status_lbl.clear()
         if session:
             self._name_edit.setPlaceholderText(f"e.g.  {session.media_type.title()} Analysis")
+            if hasattr(session, 'name') and session.name and session.name != "Untitled":
+                self._name_edit.setText(session.name)
         self._name_edit.setFocus()
 
     # ── Actions ───────────────────────────────────────────────────────────────

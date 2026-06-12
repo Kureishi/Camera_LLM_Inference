@@ -185,7 +185,7 @@ class Screen1_Home(QWidget):
     def _open_saved_chat(self, item: QListWidgetItem):
         session: ChatSession = item.data(Qt.ItemDataRole.UserRole)
         if session:
-            self.mw.navigate_to(self.mw.CHAT, session=session, read_only=True)
+            self.mw.navigate_to(self.mw.CHAT, session=session, read_only=False)
 
     def _show_context_menu(self, pos):
         item = self._chat_list.itemAt(pos)

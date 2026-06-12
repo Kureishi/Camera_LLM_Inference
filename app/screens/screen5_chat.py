@@ -316,9 +316,14 @@ class Screen5_Chat(QWidget):
                         if part.get("type") == "text":
                             self._add_bubble(role, _strip_prefix(part["text"]), as_markdown=True)
                             
-            self._input.setEnabled(False)
-            self._send_btn.setEnabled(False)
-            self._finish_btn.setText("← Close")
+            if self._read_only:
+                self._input.setEnabled(False)
+                self._send_btn.setEnabled(False)
+                self._finish_btn.setText("← Close")
+            else:
+                self._input.setEnabled(True)
+                self._send_btn.setEnabled(True)
+                self._finish_btn.setText("✓  Finish")
         else:
             # Fresh session
             self._session   = None
@@ -490,7 +495,14 @@ class Screen5_Chat(QWidget):
         if self._worker and self._worker.isRunning():
             self._worker.quit()
             self._worker.wait(1000)
-        # Package the session
+            
+        if self._session is not None:
+            # Continuing an existing session
+            self._session.messages = list(self._messages)
+            self.mw.navigate_to(self.mw.SAVE, session=self._session)
+            return
+
+        # Package the new session
         mode = self.mw.capture_mode
         session = ChatSession(
             name       = "Untitled",

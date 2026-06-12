@@ -43,7 +43,7 @@ python main.py
 ```
 
 ### Prerequisites
-1. **Webcam** connected
+1. **Webcam** connected or **IP camera** with reachable IP address (e.g. `http://[IP_ADDRESS]`)
 2. **LM Studio** running with a **vision model** loaded (e.g. LLaVA, Qwen-VL)
 3. LM Studio **local server started** (default: `http://localhost:1234`)
 
@@ -52,7 +52,6 @@ python main.py
 ## User Flow
 
 ```mermaid
-graph TD
     S1["Screen 1: Home"] -->|Image| S2I["Screen 2: Camera (Image)"]
     S1 -->|Video| S2V["Screen 2: Camera (Video)"]
     S2I -->|Capture| S3["Screen 3: Crop"]
@@ -64,6 +63,16 @@ graph TD
     S7 -->|3s auto| S1
     S1 -->|Open saved chat| S5R["Screen 5: Chat (read-only)"]
 ```
+
+---
+
+## Change Camera Feed Guide
+
+1. If you are using a standard USB webcam, you can just type 0, 1, 2, etc. and hit Enter. It will connect as a regular USB camera.
+2. If you want to use a smartphone, download a free app like IP Webcam (Android) or similar apps for iOS that broadcast your camera over WiFi. Start the server to use as a WiFi camera
+3. Note the URL that will be set (ex: http://192.168.1.100:8080).
+4. Paste that exact URL into the 'Camera' text box and press Enter.
+
 
 ---
 
@@ -83,9 +92,9 @@ graph TD
 ## Features
 
 - 7 Screens (Home, Capture, Crop, Model Select, Chat, Save, Done)
-- Image and Video Capture
+- Image and Video Capture (With Rotate Feed Capability)
 - LLM Chat with Streaming
-- Save/Load Chat Sessions 
+- Save/Load Chat Sessions (Chats are listed with the last modified date and time)
 - Model Selection (LLM URL + Model Dropdown)
 - Delete or Rename Saved Chats
 
@@ -104,7 +113,7 @@ graph TD
 - 🎬 Video recording and frame sampling
 - 🤖 End-to-end LLM chat (requires LM Studio with a vision model running)
 - 💾 Save/load chat sessions
-- 📱 Verify smartphone can be used as webcam
+- 📱 Verify smartphone can be used as webcam (App used in Testing: **IP Webcam** for Android)
 
 ## ⏳ In Progress
 - Improve UI to be more robust

@@ -117,7 +117,7 @@ graph TD;
 - 📱 Verify smartphone can be used as webcam (App used in Testing: **IP Webcam** for Android)
 
 ## ⏳ In Progress
-- Improve UI to be more robust
+- Continue past chats when loaded
 
 > [!IMPORTANT]
 > Some dummy chats are present already under the Saved Chats section (`chats/` folder). This was collected during testing and left to provide various samples. As such, they can be safely deleted.

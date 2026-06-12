@@ -11,7 +11,7 @@ from PySide6.QtCore    import Qt, QTimer, Signal, Slot
 from PySide6.QtGui     import QImage, QPixmap, QFont
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
-    QSpinBox, QProgressBar, QFrame, QSizePolicy, QMessageBox
+    QLineEdit, QProgressBar, QFrame, QSizePolicy, QMessageBox
 )
 
 from app.camera_thread import CameraThread
@@ -69,14 +69,12 @@ class Screen2_Capture(QWidget):
         # Camera index selector
         cam_lbl = QLabel("Camera:")
         cam_lbl.setStyleSheet(f"color: {TEXT_SECONDARY};")
-        self._cam_spin = QSpinBox()
-        self._cam_spin.setRange(0, 9)
-        self._cam_spin.setValue(0)
-        self._cam_spin.setFixedWidth(60)
-        self._cam_spin.setToolTip("Camera device index (0 = default webcam)")
-        self._cam_spin.valueChanged.connect(self._switch_camera)
+        self._cam_input = QLineEdit("0")
+        self._cam_input.setFixedWidth(200)
+        self._cam_input.setToolTip("Camera index (0, 1) or IP Camera URL (http://...)")
+        self._cam_input.returnPressed.connect(self._switch_camera)
         top_l.addWidget(cam_lbl)
-        top_l.addWidget(self._cam_spin)
+        top_l.addWidget(self._cam_input)
         outer.addWidget(top)
 
         # ── Camera feed ──────────────────────────────────────────────────────
@@ -178,7 +176,10 @@ class Screen2_Capture(QWidget):
         # Start camera thread
         if self._thread.isRunning():
             self._thread.stop_capture()
-        self._thread.start_capture(self._cam_spin.value())
+        
+        text = self._cam_input.text().strip()
+        source = int(text) if text.isdigit() else text
+        self._thread.start_capture(source)
 
     def _go_back(self):
         if self._thread.isRunning():
@@ -221,10 +222,15 @@ class Screen2_Capture(QWidget):
 
     # ── Camera switch ────────────────────────────────────────────────────────
 
-    def _switch_camera(self, index: int):
+    def _switch_camera(self):
         if self._thread.isRunning():
             self._thread.stop_capture()
-        self._thread.start_capture(index)
+        
+        text = self._cam_input.text().strip()
+        if not text:
+            return
+        source = int(text) if text.isdigit() else text
+        self._thread.start_capture(source)
 
     # ── Image capture ────────────────────────────────────────────────────────
 
@@ -262,7 +268,10 @@ class Screen2_Capture(QWidget):
         self._thread.stop_capture()
         if not self._recorded_frames:
             QMessageBox.warning(self, "No frames", "No frames were captured. Please try again.")
-            self._thread.start_capture(self._cam_spin.value())
+            
+            text = self._cam_input.text().strip()
+            source = int(text) if text.isdigit() else text
+            self._thread.start_capture(source)
             return
         self.mw.captured_frames = list(self._recorded_frames)
         self.mw.navigate_to(self.mw.CROP)

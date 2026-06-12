@@ -15,17 +15,17 @@ class CameraThread(QThread):
     frame_ready = Signal(np.ndarray)
     error       = Signal(str)
 
-    def __init__(self, camera_index: int = 0, parent=None):
+    def __init__(self, camera_source: int | str = 0, parent=None):
         super().__init__(parent)
-        self.camera_index = camera_index
+        self.camera_source = camera_source
         self._running = False
         self._cap: cv2.VideoCapture | None = None
 
     # ── Public API ──────────────────────────────────────────────────────────
 
-    def start_capture(self, camera_index: int | None = None) -> None:
-        if camera_index is not None:
-            self.camera_index = camera_index
+    def start_capture(self, camera_source: int | str | None = None) -> None:
+        if camera_source is not None:
+            self.camera_source = camera_source
         self._running = True
         self.start()
 
@@ -36,13 +36,17 @@ class CameraThread(QThread):
     # ── QThread lifecycle ────────────────────────────────────────────────────
 
     def run(self) -> None:
-        self._cap = cv2.VideoCapture(self.camera_index, cv2.CAP_DSHOW)
-        if not self._cap.isOpened():
-            # Try without backend hint (Linux / macOS)
-            self._cap = cv2.VideoCapture(self.camera_index)
+        if isinstance(self.camera_source, int):
+            self._cap = cv2.VideoCapture(self.camera_source, cv2.CAP_DSHOW)
+            if not self._cap.isOpened():
+                # Try without backend hint (Linux / macOS)
+                self._cap = cv2.VideoCapture(self.camera_source)
+        else:
+            # IP camera URL
+            self._cap = cv2.VideoCapture(self.camera_source)
 
         if not self._cap.isOpened():
-            self.error.emit(f"Cannot open camera index {self.camera_index}")
+            self.error.emit(f"Cannot open camera source: {self.camera_source}")
             return
 
         # Prefer 720p for a good quality / performance balance

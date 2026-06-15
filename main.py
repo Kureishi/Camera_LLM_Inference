@@ -17,6 +17,13 @@ from PySide6.QtCore    import Qt
 
 from app.main_window import MainWindow
 
+# def get_resource_path(relative_path):
+#     """Get path to resource, works for both dev and PyInstaller bundle."""
+#     if hasattr(sys, '_MEIPASS'):
+#         # PyInstaller extracts files to a temp folder (_MEIPASS) at runtime
+#         return os.path.join(sys._MEIPASS, relative_path)
+#     return os.path.join(os.path.dirname(os.path.abspath(__file__)), relative_path)
+
 
 def main():
     # High-DPI support

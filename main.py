@@ -33,6 +33,12 @@ def main():
     font.setHintingPreference(QFont.HintingPreference.PreferNoHinting)
     app.setFont(font)
 
+    # Set app-wide icon (affects taskbar, window title bar, etc.)
+    icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon.ico")
+
+    if os.path.exists(icon_path):
+        app.setWindowIcon(QIcon(icon_path))
+
     # Apply dark theme via pyqtdarktheme as a base, then layer our custom stylesheet
     try:
         import qdarktheme

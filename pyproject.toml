@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "camera-llm"
-version = "0.1.0"
-description = "A local application to feed camera/video streams into LLMs."
+version = "0.1.1"
+description = "A local application to feed images/videos from a webcam into local LLMs for analysis and conversations."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [

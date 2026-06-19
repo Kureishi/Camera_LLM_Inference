@@ -37,16 +37,27 @@ Camera_LLM_Inference/
 
 ## How to Run
 
-```bash
-cd "c:\Users\kurei\Documents\Machine_Deep Learning\Camera_LLM_Inference"
-pip install -e .
-camera-llm run
-```
-
 ### Prerequisites
 1. **Webcam** connected or **IP camera** with reachable IP address (e.g. `http://[IP_ADDRESS]`)
 2. **LM Studio** running with a **vision model** loaded (e.g. LLaVA, Qwen-VL)
 3. LM Studio **local server started** (default: `http://localhost:1234`)
+
+```bash
+cd "[project-directory]"
+git clone https://github.com/Kureishi/Camera_LLM_Inference.git
+python camera_llm/cli.py
+```
+
+---
+
+## Convenient Install through (using Pip)
+
+```bash
+conda create -n [env-name] python>=3.9
+conda activate [env-name]
+pip install camera-llm
+camera-llm run
+```
 
 ---
 
@@ -55,6 +66,9 @@ camera-llm run
 Alternatively, you can [Download the Distribution Zip File to Run as Standalone Application](https://drive.proton.me/urls/ASD3RNEVY0#txhcUP2W8rzJ). This saves you the time of downloading the repo and installing the other dependencies, but it also takes around 2.5 GB of disk space (in addition to less frequent updates). Once downloaded, unzip the file then navigate to "\CameraLLMInference\CameraLLMInference.exe" to run the application.
 
 ---
+
+> [!CAUTION]
+> All Prerequisites apply to all install options. The app has been tested and verified for all 3 options.
 
 ## User Flow
 

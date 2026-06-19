@@ -53,9 +53,9 @@ class Screen4_ModelSelect(QWidget):
         # Top bar
         top = QWidget()
         top.setStyleSheet(f"background: {BG_CARD}; border-bottom: 1px solid {BORDER};")
-        top.setFixedHeight(52)
+        top.setFixedHeight(56)
         top_l = QHBoxLayout(top)
-        top_l.setContentsMargins(16, 0, 16, 0)
+        top_l.setContentsMargins(16, 8, 16, 8)
         back_btn = QPushButton("← Back")
         back_btn.clicked.connect(self._go_back)
         back_btn.setFixedWidth(90)

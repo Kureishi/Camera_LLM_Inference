@@ -91,6 +91,10 @@ QPushButton:disabled {{
     color: {TEXT_DIM};
     border-color: {TEXT_DIM};
 }}
+QPushButton:focus {{
+    outline: none;
+    border: 1px solid {BORDER};
+}}
 
 QPushButton#primary {{
     background: qlineargradient(x1:0, y1:0, x2:1, y2:0,

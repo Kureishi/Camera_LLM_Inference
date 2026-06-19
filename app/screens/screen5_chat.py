@@ -142,7 +142,7 @@ class Screen5_Chat(QWidget):
         top = QWidget()
         top.setStyleSheet(f"background: {BG_CARD}; border-bottom: 1px solid {BORDER};")
         top_l = QHBoxLayout(top)
-        top_l.setContentsMargins(16, 12, 16, 12)
+        top_l.setContentsMargins(16, 14, 16, 14)
 
         self._finish_btn = QPushButton("✓  Finish")
         self._finish_btn.setObjectName("primary")
@@ -225,7 +225,7 @@ class Screen5_Chat(QWidget):
             f"background: {BG_CARD}; border-top: 1px solid {BORDER};"
         )
         input_l = QHBoxLayout(input_bar)
-        input_l.setContentsMargins(16, 12, 16, 12)
+        input_l.setContentsMargins(16, 14, 16, 14)
         input_l.setSpacing(10)
 
         self._input = QTextEdit()

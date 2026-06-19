@@ -50,7 +50,7 @@ python camera_llm/cli.py
 
 ---
 
-## Convenient Install through (using Pip)
+## Convenient Install (using Pip)
 
 ```bash
 conda create -n [env-name] python>=3.9
@@ -58,6 +58,10 @@ conda activate [env-name]
 pip install camera-llm
 camera-llm run
 ```
+
+> [!NOTE]
+> Conda environment was utilized during testing; however, other package & environment managers shouldn't have any prominent issues.
+> The 'camera-llm run' command is a custom command formatted for convenience to launch the main Python app (camera_llm/cli.py). 
 
 ---
 
@@ -68,7 +72,7 @@ Alternatively, you can [Download the Distribution Zip File to Run as Standalone 
 ---
 
 > [!CAUTION]
-> All Prerequisites apply to all install options. The app has been tested and verified for all 3 options.
+> All Prerequisites apply to all install options. The app has been verified for full functionality with all 3 installation methods.
 
 ## User Flow
 

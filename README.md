@@ -72,7 +72,7 @@ Alternatively, you can [Download the Distribution Zip File to Run as Standalone 
 ---
 
 > [!CAUTION]
-> All Prerequisites apply to all install methods. The app has been verified for full functionality with all 3 installation methods.
+> All Prerequisites apply to all install options. The app has been verified for full functionality with all 3 installation methods.
 
 ## User Flow
 

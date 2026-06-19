@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (
     QMainWindow, QWidget, QHBoxLayout, QStackedWidget, QSizePolicy
 )
 
-from app.styles import MAIN_STYLESHEET
+from camera_llm.styles import MAIN_STYLESHEET
 
 
 class MainWindow(QMainWindow):
@@ -61,13 +61,13 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self._root)
 
         # Lazy import screens to avoid circular dependency at module level
-        from app.screens.screen1_home         import Screen1_Home
-        from app.screens.screen2_capture      import Screen2_Capture
-        from app.screens.screen3_crop         import Screen3_Crop
-        from app.screens.screen4_model_select import Screen4_ModelSelect
-        from app.screens.screen5_chat         import Screen5_Chat
-        from app.screens.screen6_save         import Screen6_Save
-        from app.screens.screen7_done         import Screen7_Done
+        from camera_llm.screens.screen1_home         import Screen1_Home
+        from camera_llm.screens.screen2_capture      import Screen2_Capture
+        from camera_llm.screens.screen3_crop         import Screen3_Crop
+        from camera_llm.screens.screen4_model_select import Screen4_ModelSelect
+        from camera_llm.screens.screen5_chat         import Screen5_Chat
+        from camera_llm.screens.screen6_save         import Screen6_Save
+        from camera_llm.screens.screen7_done         import Screen7_Done
 
         self.screen1 = Screen1_Home(self)
         self.screen2 = Screen2_Capture(self)

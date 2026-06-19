@@ -1,0 +1,2 @@
+[console_scripts]
+camera-llm = camera_llm.cli:cli

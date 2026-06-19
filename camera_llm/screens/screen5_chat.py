@@ -18,9 +18,9 @@ from PySide6.QtWidgets import (
     QMessageBox, QApplication
 )
 
-from app.llm_client  import LMStudioClient
-from app.chat_session import ChatSession
-from app.styles       import (
+from camera_llm.llm_client  import LMStudioClient
+from camera_llm.chat_session import ChatSession
+from camera_llm.styles       import (
     ACCENT_CYAN, ACCENT_AMBER, BG_CARD, BG_PANEL, BG_INPUT,
     TEXT_PRIMARY, TEXT_SECONDARY, TEXT_DIM, BORDER, ERROR_COLOR,
     USER_BUBBLE, BOT_BUBBLE

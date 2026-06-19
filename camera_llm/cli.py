@@ -15,7 +15,7 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtGui     import QFont, QIcon
 from PySide6.QtCore    import Qt
 
-from app.main_window import MainWindow
+from camera_llm.main_window import MainWindow
 
 # def get_resource_path(relative_path):
 #     """Get path to resource, works for both dev and PyInstaller bundle."""
@@ -25,7 +25,7 @@ from app.main_window import MainWindow
 #     return os.path.join(os.path.dirname(os.path.abspath(__file__)), relative_path)
 
 
-def main():
+def run_app():
     # High-DPI support
     QApplication.setHighDpiScaleFactorRoundingPolicy(
         Qt.HighDpiScaleFactorRoundingPolicy.PassThrough
@@ -59,6 +59,14 @@ def main():
 
     sys.exit(app.exec())
 
+def cli():
+    if len(sys.argv) > 1 and sys.argv[1] == "run":
+        # Remove 'run' so QApplication doesn't try to parse it
+        sys.argv = [sys.argv[0]] + sys.argv[2:]
+        run_app()
+    else:
+        print("Usage: camera-llm run")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    main()
+    run_app()

@@ -9,7 +9,7 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QLabel, QPushButton
 )
 
-from app.styles import ACCENT_CYAN, TEXT_SECONDARY, TEXT_DIM
+from camera_llm.styles import ACCENT_CYAN, TEXT_SECONDARY, TEXT_DIM
 
 
 class Screen7_Done(QWidget):

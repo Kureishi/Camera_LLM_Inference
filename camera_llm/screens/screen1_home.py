@@ -12,9 +12,9 @@ from PySide6.QtWidgets import (
     QGraphicsDropShadowEffect
 )
 
-import app.chat_store as chat_store
-from app.chat_session import ChatSession
-from app.styles       import (
+import camera_llm.chat_store as chat_store
+from camera_llm.chat_session import ChatSession
+from camera_llm.styles       import (
     BG_PANEL, BG_CARD, ACCENT_CYAN, ACCENT_AMBER, TEXT_PRIMARY,
     TEXT_SECONDARY, TEXT_DIM, BORDER, hero_button_style
 )

@@ -1,3 +1,15 @@
+Metadata-Version: 2.4
+Name: camera-llm
+Version: 0.1.0
+Summary: A local application to feed camera/video streams into LLMs.
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: PySide6>=6.6.0
+Requires-Dist: opencv-python>=4.9.0
+Requires-Dist: openai>=1.30.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: pyqtdarktheme==0.1.7
+
 # Camera → Local LLM Inference App
 
 ## Description
@@ -6,31 +18,30 @@ A Python desktop app that captures images or short video clips from a webcam, op
 
 ---
 
-## Project Structure (Main Files)
+## Project Structure
 
 ```
 Camera_LLM_Inference/
-└── camera_llm/
-       ├── __init__.py
-       ├── camera_thread.py         # QThread for OpenCV camera capture
-       ├── chat_session.py          # ChatSession dataclass + JSON serialisation
-       ├── chat_store.py            # Read/write chat sessions to chats/*.json
-       ├── cli.py                   # Entry point handling CLI and launching app (app initialization)
-       ├── llm_client.py            # OpenAI client → LM Studio, in-memory encode
-       ├── main_window.py           # Main window that aids navigation among the 7 screens
-       ├── styles.py                # Global stylesheet + design tokens     
-       └── screens/
-           ├── __init__.py
-           ├── screen1_home.py          # Dashboard + saved chats panel
-           ├── screen2_capture.py       # Live camera feed, capture/record controls
-           ├── screen3_crop.py          # Rubber-band crop with dimming overlay
-           ├── screen4_model_select.py  # LM Studio URL + model dropdown
-           ├── screen5_chat.py          # Chatbot with streaming, thumbnails, bubbles
-           ├── screen6_save.py          # Name & save the session
-           └── screen7_done.py          # Confirmation + auto-redirect home
-└── chats/                           # Auto-created at runtime for saved sessions
-├── pyproject.toml                   # Package metadata + entry points
+├── main.py                          # Entry point
 ├── requirements.txt                 # pip dependencies
+├── chats/                           # Auto-created at runtime for saved sessions
+└── app/
+    ├── __init__.py
+    ├── main_window.py               # QStackedWidget navigation, shared state
+    ├── camera_thread.py             # QThread for OpenCV camera capture
+    ├── llm_client.py                # OpenAI client → LM Studio, in-memory encode
+    ├── chat_session.py              # ChatSession dataclass + JSON serialisation
+    ├── chat_store.py                # Read/write chat sessions to chats/*.json
+    ├── styles.py                    # Global stylesheet + design tokens
+    └── screens/
+        ├── __init__.py
+        ├── screen1_home.py          # Home — Image/Video buttons + saved chats panel
+        ├── screen2_capture.py       # Live camera feed, capture/record controls
+        ├── screen3_crop.py          # Rubber-band crop with dimming overlay
+        ├── screen4_model_select.py  # LM Studio URL + model dropdown
+        ├── screen5_chat.py          # Chatbot with streaming, thumbnails, bubbles
+        ├── screen6_save.py          # Name & save the session
+        └── screen7_done.py          # Confirmation + auto-redirect home
 ```
 
 ---
@@ -39,8 +50,8 @@ Camera_LLM_Inference/
 
 ```bash
 cd "c:\Users\kurei\Documents\Machine_Deep Learning\Camera_LLM_Inference"
-pip install -e .
-camera-llm run
+pip install -r requirements.txt
+python main.py
 ```
 
 ### Prerequisites

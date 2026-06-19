@@ -13,8 +13,8 @@ from PySide6.QtWidgets import (
     QSizePolicy, QFrame
 )
 
-from app.llm_client import LMStudioClient
-from app.styles     import (
+from camera_llm.llm_client import LMStudioClient
+from camera_llm.styles     import (
     ACCENT_CYAN, ACCENT_AMBER, BG_CARD, BG_PANEL, TEXT_PRIMARY,
     TEXT_SECONDARY, BORDER
 )

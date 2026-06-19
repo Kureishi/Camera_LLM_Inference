@@ -7,7 +7,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from app.chat_session import ChatSession
+from camera_llm.chat_session import ChatSession
 
 CHATS_DIR = Path(__file__).parent.parent / "chats"
 

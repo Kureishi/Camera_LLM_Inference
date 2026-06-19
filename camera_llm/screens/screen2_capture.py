@@ -15,8 +15,8 @@ from PySide6.QtWidgets import (
     QLineEdit, QProgressBar, QFrame, QSizePolicy, QMessageBox
 )
 
-from app.camera_thread import CameraThread
-from app.styles        import (
+from camera_llm.camera_thread import CameraThread
+from camera_llm.styles        import (
     ACCENT_CYAN, ACCENT_AMBER, BG_CARD, BG_PANEL, TEXT_PRIMARY,
     TEXT_SECONDARY, TEXT_DIM, BORDER, ERROR_COLOR
 )

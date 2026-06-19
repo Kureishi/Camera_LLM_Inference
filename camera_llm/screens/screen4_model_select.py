@@ -11,8 +11,8 @@ from PySide6.QtWidgets import (
     QComboBox, QLineEdit, QFrame, QSizePolicy, QMessageBox
 )
 
-from app.llm_client import LMStudioClient
-from app.styles     import (
+from camera_llm.llm_client import LMStudioClient
+from camera_llm.styles     import (
     ACCENT_CYAN, BG_CARD, BG_PANEL, TEXT_PRIMARY, TEXT_SECONDARY,
     TEXT_DIM, BORDER, ERROR_COLOR, SUCCESS
 )

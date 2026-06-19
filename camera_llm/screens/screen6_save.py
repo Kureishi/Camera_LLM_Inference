@@ -10,9 +10,9 @@ from PySide6.QtWidgets import (
     QLineEdit, QSizePolicy, QMessageBox
 )
 
-import app.chat_store as chat_store
-from app.chat_session import ChatSession
-from app.styles       import (
+import camera_llm.chat_store as chat_store
+from camera_llm.chat_session import ChatSession
+from camera_llm.styles       import (
     ACCENT_CYAN, BG_CARD, BG_PANEL, TEXT_PRIMARY, TEXT_SECONDARY,
     TEXT_DIM, BORDER, ERROR_COLOR, SUCCESS
 )

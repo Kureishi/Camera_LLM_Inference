@@ -67,7 +67,7 @@ camera-llm run
 
 ## Optional Install Method (download distribution zip file)
 
-Alternatively, you can [Download the Distribution Zip File to Run as Standalone Application](https://drive.proton.me/urls/ASD3RNEVY0#txhcUP2W8rzJ). This saves you the time of downloading the repo and installing the other dependencies, but it also takes around 2.5 GB of disk space (in addition to less frequent updates). Once downloaded, unzip the file then navigate to "\CameraLLMInference\CameraLLMInference.exe" to run the application.
+Alternatively, you can [Download the Distribution Zip File to Run as a Standalone Application](https://drive.proton.me/urls/ASD3RNEVY0#txhcUP2W8rzJ). This saves you the time of downloading the repo and installing the other dependencies, but it also takes around 2.5 GB of disk space (in addition to less frequent updates). Once downloaded, unzip the file then navigate to "\CameraLLMInference\CameraLLMInference.exe" to run the application.
 
 ---
 
